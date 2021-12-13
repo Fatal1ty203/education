@@ -4,12 +4,12 @@ import homework8.RPG.Character.Class.Heal;
 
 public class Senjin extends Heal {
 
-
-    private final String name;
-
-    public Senjin() {
-        super();
-        this.name = "Senjin";
+    @Override
+    public String getName() {
+        return "Senjin";
     }
 
+    public Senjin(int physicalProtection, int magicProtection) {
+        super(physicalProtection, magicProtection);
+    }
 }

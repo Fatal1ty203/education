@@ -3,14 +3,14 @@ package homework8.RPG.Character.Class.Mages;
 import homework8.RPG.Character.Class.Mage;
 
 public class JainaProudmoore extends Mage {
-    String name = "JainaProudmoore";
 
-    public JainaProudmoore() {
-        super();
+    public JainaProudmoore(int physicalProtection, int magicProtection) {
+        super(physicalProtection, magicProtection);
     }
+
 
     @Override
     public String getName() {
-        return super.getName();
+        return "JainaProudmoore";
     }
 }

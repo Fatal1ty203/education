@@ -1,28 +1,33 @@
 package homework8.RPG.Character.Class;
 
 abstract class Character {
-    String name;
-    private static int lvl,damage;
-    int health, physicalProtection, magicProtection, id;
+    private String name;
+    private int lvl,damage,cooldownAD, cooldownAP;
+    private int health, physicalProtection, magicProtection, id;
     private static int idCounter = 0;
 
-    public Character() {
+    public Character(int physicalProtection, int magicProtection) {
         this.name = getName();
-        this.lvl = lvl;
         this.health = health();
-        this.damage = damage();
+        this.physicalProtection = physicalProtection;
+        this.magicProtection = magicProtection;
         this.id = CreateID();
+        this.lvl = getLvl();
+        this.damage = damage();
     }
 
-    private static int health(){
-        return (int)(50* Character.lvl*1.5);
+    public int health(){
+        if (getLvl() == 0) setLvl(1);
+        return (int)(50* (getLvl()*1.5));
     }
 
-    private static int damage(){
-        return (int)(10*lvl*1.2);
+    private int damage(){
+        if (getLvl() == 0) setLvl(1);
+        return (int)(10* (getLvl()*1.2));
     }
 
-    void basicAtack(Character character){}
+    void basicAtack(Character character){
+    }
 
     void specialAtack(Character character){}
 
@@ -35,20 +40,20 @@ abstract class Character {
         return idCounter++;
     }
 
-    public static int getLvl() {
+    public  int getLvl() {
         return lvl;
     }
 
-    public static void setLvl(int lvl) {
-        Character.lvl = lvl;
+    public void setLvl(int lvl) {
+        this.lvl = lvl;
     }
 
-    public static int getDamage() {
+    public int getDamage() {
         return damage;
     }
 
-    public static void setDamage(int damage) {
-        Character.damage = damage;
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 
     public int getHealth() {
@@ -63,16 +68,9 @@ abstract class Character {
         return physicalProtection;
     }
 
-    public void setPhysicalProtection(int physicalProtection) {
-        this.physicalProtection = physicalProtection;
-    }
 
     public int getMagicProtection() {
         return magicProtection;
-    }
-
-    public void setMagicProtection(int magicProtection) {
-        this.magicProtection = magicProtection;
     }
 
     public String getName() {
@@ -81,5 +79,25 @@ abstract class Character {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getCooldownAD() {
+        return cooldownAD;
+    }
+
+    public void setCooldownAD(int cooldown) {
+        this.cooldownAD = cooldown;
+    }
+
+    public int getCooldownAP() {
+        return cooldownAP;
+    }
+
+    public void setCooldownAP(int cooldownAP) {
+        this.cooldownAP = cooldownAP;
+    }
+
+    public int getId() {
+        return id;
     }
 }

@@ -3,13 +3,13 @@ package homework8.RPG.Character.Class.Warriors;
 import homework8.RPG.Character.Class.Warrior;
 
 public class VarianWrynn extends Warrior {
-    String name = "VarianWrynn";
 
-    public VarianWrynn() {
-        super();
+    public VarianWrynn(int physicalProtection, int magicProtection) {
+        super(physicalProtection, magicProtection);
     }
+
     @Override
     public String getName() {
-        return super.getName();
+        return "VarianWrynn";
     }
 }
