@@ -1,10 +1,13 @@
 package homework8.RPG.Character.Class;
 
-abstract class Character {
+abstract public class Character {
     private String name;
     private int lvl,damage,cooldownAD, cooldownAP;
     private int health, physicalProtection, magicProtection, id;
     private static int idCounter = 0;
+    private String specialName;
+    private String basicName;
+
 
     public Character(int physicalProtection, int magicProtection) {
         this.name = getName();
@@ -18,7 +21,7 @@ abstract class Character {
 
     public int health(){
         if (getLvl() == 0) setLvl(1);
-        return (int)(50* (getLvl()*1.5));
+        return (int)(150 * (getLvl()*1.5));
     }
 
     private int damage(){
@@ -26,10 +29,10 @@ abstract class Character {
         return (int)(10* (getLvl()*1.2));
     }
 
-    void basicAtack(Character character){
+    public void basicAtack(Character character){
     }
 
-    void specialAtack(Character character){}
+    public void specialAtack(Character character){}
 
 
     protected void updateLevel(){
@@ -38,6 +41,22 @@ abstract class Character {
 
     private static synchronized int CreateID(){
         return idCounter++;
+    }
+
+    public void setPhysicalProtection(int physicalProtection) {
+        this.physicalProtection = physicalProtection;
+    }
+
+    public void setMagicProtection(int magicProtection) {
+        this.magicProtection = magicProtection;
+    }
+
+    public int getPhysicalProtection() {
+        return physicalProtection;
+    }
+
+    public int getMagicProtection() {
+        return magicProtection;
     }
 
     public  int getLvl() {
@@ -61,17 +80,14 @@ abstract class Character {
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if (health>0){
+            this.health = health;
+        }else {
+            System.out.println("Игрок: " + getName() + " мертв.");
+            this.health = 0;
+        }
     }
 
-    public int getPhysicalProtection() {
-        return physicalProtection;
-    }
-
-
-    public int getMagicProtection() {
-        return magicProtection;
-    }
 
     public String getName() {
         return name;
@@ -99,5 +115,13 @@ abstract class Character {
 
     public int getId() {
         return id;
+    }
+
+    public String getSpecialName() {
+        return specialName;
+    }
+
+    public String getBasicName() {
+        return basicName;
     }
 }
