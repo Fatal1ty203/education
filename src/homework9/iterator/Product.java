@@ -8,24 +8,24 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-public class Product{
+public class Product {
     String name;
     int price;
 
-    public Product(String name, int price){
+    public Product(String name, int price) {
         this.name = name;
         this.price = price;
     }
 
-    static class ProductService implements Iterable<Product>{
+    static class ProductService implements Iterable<Product> {
         private Iterator<Product> iterator;
         private List<Product> productList = new ArrayList<>();
 
-        public void print(){
+        public void print() {
             productList.forEach(System.out::println);
         }
 
-        public void setIterator(Iterator<Product> iterator){
+        public void setIterator(Iterator<Product> iterator) {
             this.iterator = iterator;
         }
 
@@ -35,13 +35,13 @@ public class Product{
             return iterator;
         }
 
-        static class IteratorPrice implements Iterator<Product>{
+        static class IteratorPrice implements Iterator<Product> {
             private List<Product> productList = new ArrayList<>();
             private int index = 0;
 
-            public IteratorPrice(List<Product> productList, int price){
-                for (Product product : productList){
-                    if (product.price <= price){
+            public IteratorPrice(List<Product> productList, int price) {
+                for (Product product : productList) {
+                    if (product.price <= price) {
                         this.productList.add(product);
                     }
                 }
@@ -58,7 +58,8 @@ public class Product{
                 return productList.get(index++);
             }
         }
-        static class AscendingPrice implements Comparator<Product>{
+
+        static class AscendingPrice implements Comparator<Product> {
 
             @Override
             public int compare(Product o1, Product o2) {
@@ -66,7 +67,7 @@ public class Product{
             }
         }
 
-        static class DescendingPrice implements Comparator<Product>{
+        static class DescendingPrice implements Comparator<Product> {
 
             @Override
             public int compare(Product o1, Product o2) {
