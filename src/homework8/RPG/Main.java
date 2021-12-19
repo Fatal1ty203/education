@@ -25,19 +25,18 @@ public class Main {
         ThunderHellscream thunderHellscream = new ThunderHellscream(100,70);
 
         List<Character> characters = new ArrayList<>();
-        ChekPoint chekPoints = new ChekPoint();
         characters.add(senjin);
         characters.add(velen);
         characters.add(antonidas);
         characters.add(jainaProudmoore);
         characters.add(varianWrynn);
         characters.add(thunderHellscream);
-        characters = chekPoints.loads(characters);
+        characters = ChekPoint.loads(characters);
         Fight fight = new Fight();
         fight.fight(characters.get(5), fight.target(characters));
 
 
 
-        chekPoints.saves(characters);
+        ChekPoint.saves(characters);
     }
 }

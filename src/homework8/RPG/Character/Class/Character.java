@@ -39,7 +39,7 @@ abstract public class Character {
         setLvl(getLvl() +1);
     }
 
-    private static synchronized int CreateID(){
+    private static  int CreateID(){
         return idCounter++;
     }
 
