@@ -12,5 +12,7 @@ public class Main {
         Collections.sort(realEstates);
         System.out.println(realEstates);
 
+
+
     }
 }

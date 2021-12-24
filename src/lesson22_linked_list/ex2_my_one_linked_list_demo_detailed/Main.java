@@ -14,7 +14,7 @@ public class Main {
 //        System.out.println(list.head.nextNode.nextNode.nextNode.value);
 
         //как зациклить вывод элементов?
-//        MyOneLinkedList.Node<String> currentNode = list.head;
+//        MyDoubleLinkedList.Node<String> currentNode = list.head;
 //        System.out.println(currentNode.value);
 //        currentNode = currentNode.nextNode; //теперь в currentNode находится второй элемент
 //        System.out.println(currentNode.value);

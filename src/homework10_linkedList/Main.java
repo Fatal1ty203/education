@@ -16,6 +16,22 @@ public class Main {
             System.out.println(myLinkedList1.get(i));
         }
         LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.remove();
+//        linkedList.remove();
+
+
+        int a = 5;
+        int b = 2 ;
+
+        int y = a / b;
+        int x = a % b;
+
+        int c = 0;
+
+        System.out.println("При делении: " + y);
+        System.out.println("Остаток: " + x);
+
+        y = x >= 5 ? y : y+1;
+
+        System.out.println(y);
     }
 }
